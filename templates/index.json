@@ -2,7 +2,7 @@
   "sections": {
     "hero": {"type":"hero","settings":{}},
     "marquee": {"type":"marquee","settings":{}},
-    "spaces": {"type":"space-grid","settings":{},"blocks":{"space1":{"type":"space","settings":{"title":"BEDROOM","caption":"QUIET ORDER"}},"space2":{"type":"space","settings":{"title":"DESK","caption":"FOCUS BETTER"}},"space3":{"type":"space","settings":{"title":"KITCHEN","caption":"CLEAR COUNTERS"}},"space4":{"type":"space","settings":{"title":"BATHROOM","caption":"EVERYTHING IN PLACE"}},"space5":{"type":"space","settings":{"title":"TRAVEL","caption":"PACK LIGHT"}}}},
+    "spaces": {"type":"space-grid","settings":{},"blocks":{"space1":{"type":"space","settings":{"title":"BEDROOM","caption":"QUIET ORDER"}},"space2":{"type":"space","settings":{"title":"DESK","caption":"FOCUS BETTER"}},"space3":{"type":"space","settings":{"title":"KITCHEN","caption":"CLEAR COUNTERS"}},"space4":{"type":"space","settings":{"title":"BATHROOM","caption":"EVERYTHING IN PLACE"}},"space5":{"type":"space","settings":{"title":"TRAVEL","caption":"PACK LIGHT"}}},"block_order":["space1","space2","space3","space4","space5"]},
     "featured": {"type":"featured-products","settings":{"heading":"CURATED FOR EVERYDAY LIFE","products_to_show":4}},
     "experience": {"type":"experience","settings":{}},
     "compare": {"type":"before-after","settings":{}},
