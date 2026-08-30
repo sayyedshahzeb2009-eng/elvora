@@ -1,0 +1,13 @@
+[
+  {
+    "name": "ELVORA Theme",
+    "settings": [
+      {"type":"color","id":"background","label":"Background","default":"#F5F2EA"},
+      {"type":"color","id":"text","label":"Text","default":"#171717"},
+      {"type":"color","id":"accent","label":"Accent","default":"#C8B99A"},
+      {"type":"color","id":"secondary","label":"Secondary","default":"#87927D"},
+      {"type":"checkbox","id":"animations","label":"Enable animations","default":true},
+      {"type":"checkbox","id":"announcement","label":"Show announcement bar","default":true}
+    ]
+  }
+]
