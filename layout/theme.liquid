@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="{{ settings.dark_background }}">
     <link rel="canonical" href="{{ canonical_url }}">
     {% if settings.favicon != blank %}<link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 64 }}">{% endif %}
     <title>{% if page_title %}{{ page_title | escape }}{% else %}{{ settings.brand_name | escape }}{% endif %}</title>
@@ -10,25 +11,21 @@
     <meta property="og:site_name" content="{{ shop.name | escape }}">
     <meta property="og:title" content="{{ page_title | default: shop.name | escape }}">
     {% if page_description %}<meta property="og:description" content="{{ page_description | escape }}">{% endif %}
+    <meta property="og:url" content="{{ canonical_url }}">
+    {% if page_image %}<meta property="og:image" content="{{ page_image | image_url: width: 1200 }}">{% endif %}
     {{ content_for_header }}
     <style>
-      :root {
-        --elvora-bg: {{ settings.background }};
-        --elvora-text: {{ settings.text }};
-        --elvora-accent: {{ settings.accent }};
-        --elvora-secondary: {{ settings.secondary }};
-        --elvora-dark: {{ settings.dark_background }};
-        --elvora-border: {{ settings.border }};
-        --elvora-animation: {{ settings.animation_speed | default: 100 | divided_by: 100.0 }};
-      }
+      :root{--elvora-bg:{{ settings.background }};--elvora-text:{{ settings.text }};--elvora-accent:{{ settings.accent }};--elvora-secondary:{{ settings.secondary }};--elvora-dark:{{ settings.dark_background }};--elvora-border:{{ settings.border }};--elvora-animation:{{ settings.animation_speed | default: 100 | divided_by: 100.0 }}}
       {% unless settings.animations %}*,*::before,*::after{animation-duration:0s!important;animation-delay:0s!important;transition-duration:0s!important;scroll-behavior:auto!important}{% endunless %}
     </style>
     {{ 'elvora.css' | asset_url | stylesheet_tag }}
+    {{ 'elvora-premium.css' | asset_url | stylesheet_tag }}
   </head>
   <body class="{% if settings.sticky_header %}has-sticky-header{% endif %}">
     {% sections 'header-group' %}
     <main id="MainContent" role="main">{{ content_for_layout }}</main>
     {% sections 'footer-group' %}
     <script src="{{ 'elvora.js' | asset_url }}" defer></script>
+    <script src="{{ 'elvora-premium.js' | asset_url }}" defer></script>
   </body>
 </html>
