@@ -1,1 +1,19 @@
-{"current":{"background":"#F5F2EA","text":"#171717","accent":"#C8B99A","secondary":"#87927D","animations":true,"announcement":true}}
+{
+  "current": {
+    "brand_name": "ELVORA",
+    "tagline": "Make Space. Live Better.",
+    "announcement_text": "SMART LIVING, CONSIDERED BETTER · FREE SHIPPING ACROSS INDIA",
+    "show_announcement": true,
+    "background": "#F5F2EA",
+    "text": "#171717",
+    "accent": "#C8B99A",
+    "secondary": "#87927D",
+    "dark_background": "#11110F",
+    "border": "#D8D2C5",
+    "animations": true,
+    "animation_speed": 100,
+    "sticky_header": true,
+    "show_product_badges": true,
+    "instagram_handle": "@ELVORA.LIVING"
+  }
+}
