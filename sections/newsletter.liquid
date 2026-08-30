@@ -1,2 +1,11 @@
-<section class="newsletter"><div><p class="eyebrow">STAY IN THE KNOW</p><h2>MAKE ROOM<br>FOR BETTER LIVING.</h2></div>{% form 'customer', class: 'newsletter-form' %}<input type="hidden" name="contact[tags]" value="newsletter"><label for="NewsletterEmail">Your email</label><div class="email-row"><input id="NewsletterEmail" type="email" name="contact[email]" placeholder="name@email.com" required><button type="submit">JOIN ELVORA ↗</button></div>{% endform %}</section>
-{% schema %}{"name":"Newsletter","settings":[]}{% endschema %}
+<section class="newsletter">
+  <div><p class="eyebrow">{{ section.settings.eyebrow | escape }}</p><h2>{{ section.settings.heading | escape | newline_to_br }}</h2>{% if section.settings.description != blank %}<p>{{ section.settings.description }}</p>{% endif %}</div>
+  {% form 'customer', class: 'newsletter-form' %}
+    <input type="hidden" name="contact[tags]" value="newsletter">
+    <label for="NewsletterEmail-{{ section.id }}">{{ section.settings.input_label | escape }}</label>
+    <div class="email-row"><input id="NewsletterEmail-{{ section.id }}" type="email" name="contact[email" placeholder="{{ section.settings.placeholder | escape }}" required><button type="submit">{{ section.settings.button_text | escape }} ↗</button></div>
+  {% endform %}
+</section>
+{% schema %}
+{"name":"Newsletter","settings":[{"type":"text","id":"eyebrow","label":"Eyebrow","default":"STAY IN THE KNOW"},{"type":"textarea","id":"heading","label":"Heading","default":"MAKE ROOM\nFOR BETTER LIVING."},{"type":"textarea","id":"description","label":"Description","default":"Join the ELVORA list for new collections and considered living ideas."},{"type":"text","id":"input_label","label":"Input label","default":"YOUR EMAIL"},{"type":"text","id":"placeholder","label":"Placeholder","default":"name@email.com"},{"type":"text","id":"button_text","label":"Button text","default":"JOIN ELVORA"}],"presets":[{"name":"Newsletter"}]}
+{% endschema %}
