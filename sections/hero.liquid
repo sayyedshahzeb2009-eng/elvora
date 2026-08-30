@@ -1,5 +1,29 @@
 <section class="hero">
-  <div class="hero-copy"><p class="eyebrow">SMART LIVING / 01</p><h1>MAKE SPACE<br><em>FOR MORE.</em></h1><p class="hero-text">Thoughtfully designed essentials that transform the spaces you live in.</p><a class="button" href="{{ routes.all_products_collection_url }}">SHOP COLLECTION <span>↗</span></a></div>
-  <div class="hero-object" aria-hidden="true"><div class="orb orb-a"></div><div class="orb orb-b"></div><div class="organizer"><div class="slot"></div><div class="slot"></div><div class="slot"></div></div></div>
+  <div class="hero-copy">
+    {% if section.settings.eyebrow != blank %}<p class="eyebrow">{{ section.settings.eyebrow | escape }}</p>{% endif %}
+    <h1>{{ section.settings.heading | escape | newline_to_br }}</h1>
+    {% if section.settings.description != blank %}<p class="hero-text">{{ section.settings.description }}</p>{% endif %}
+    {% if section.settings.button_text != blank %}<a class="button" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">{{ section.settings.button_text | escape }} <span>↗</span></a>{% endif %}
+  </div>
+  <div class="hero-object" aria-hidden="true">
+    {% if section.settings.image != blank %}
+      {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'eager', alt: section.settings.image.alt, class: 'hero-image' }}
+    {% else %}
+      <div class="orb orb-a"></div><div class="orb orb-b"></div><div class="organizer"><div class="slot"></div><div class="slot"></div><div class="slot"></div></div>
+    {% endif %}
+  </div>
 </section>
-{% schema %}{"name":"Hero","settings":[]}{% endschema %}
+{% schema %}
+{
+  "name":"Hero",
+  "settings":[
+    {"type":"text","id":"eyebrow","label":"Eyebrow","default":"SMART LIVING / 01"},
+    {"type":"textarea","id":"heading","label":"Heading","default":"MAKE SPACE\nFOR MORE."},
+    {"type":"textarea","id":"description","label":"Description","default":"Thoughtfully designed essentials that transform the spaces you live in."},
+    {"type":"text","id":"button_text","label":"Button text","default":"SHOP COLLECTION"},
+    {"type":"url","id":"button_link","label":"Button link"},
+    {"type":"image_picker","id":"image","label":"Hero product image","info":"Optional. Leave empty to use the built-in CSS 3D fallback."}
+  ],
+  "presets":[{"name":"ELVORA Hero"}]
+}
+{% endschema %}
