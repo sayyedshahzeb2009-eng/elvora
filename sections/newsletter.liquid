@@ -3,7 +3,7 @@
   {% form 'customer', class: 'newsletter-form' %}
     <input type="hidden" name="contact[tags]" value="newsletter">
     <label for="NewsletterEmail-{{ section.id }}">{{ section.settings.input_label | escape }}</label>
-    <div class="email-row"><input id="NewsletterEmail-{{ section.id }}" type="email" name="contact[email" placeholder="{{ section.settings.placeholder | escape }}" required><button type="submit">{{ section.settings.button_text | escape }} ↗</button></div>
+    <div class="email-row"><input id="NewsletterEmail-{{ section.id }}" type="email" name="contact[email]" placeholder="{{ section.settings.placeholder | escape }}" required><button type="submit">{{ section.settings.button_text | escape }} ↗</button></div>
   {% endform %}
 </section>
 {% schema %}
