@@ -1,0 +1,11 @@
+{% if settings.announcement %}<div class="announcement">SMART LIVING, CONSIDERED BETTER <span>·</span> FREE SHIPPING ACROSS INDIA</div>{% endif %}
+<header class="site-header" data-header>
+  <a class="brand" href="{{ routes.root_url }}">ELVORA</a>
+  <nav class="nav" aria-label="Main navigation">
+    <a href="{{ routes.all_products_collection_url }}">Shop</a>
+    <a href="{{ routes.collections_url }}">Collections</a>
+    <a href="{{ routes.search_url }}">Search</a>
+  </nav>
+  <a class="cart-link" href="{{ routes.cart_url }}">Cart <span data-cart-count>{% if cart.item_count > 0 %}({{ cart.item_count }}){% endif %}</span></a>
+</header>
+{% schema %}{"name":"Header","settings":[]}{% endschema %}
