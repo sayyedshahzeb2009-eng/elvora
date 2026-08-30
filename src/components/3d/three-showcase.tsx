@@ -1,0 +1,1 @@
+'use client';import dynamic from 'next/dynamic';import {ComponentProps} from 'react';const Scene=dynamic(()=>import('@/components/3d/hero-scene'),{ssr:false,loading:()=>null});export default function ThreeShowcase(){return <Scene/>}
