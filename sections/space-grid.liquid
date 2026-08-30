@@ -1,0 +1,20 @@
+<section class="el-space" id="spaces">
+  <div class="el-wrap">
+    <div class="el-section-top"><span>{{ section.settings.kicker | escape }}</span><span>01 / 05</span></div>
+    <div class="el-space-title"><h2>{{ section.settings.heading | escape }}</h2><p>{{ section.settings.description | escape }}</p></div>
+    <div class="el-space-grid">
+      {% for block in section.blocks %}
+        <a class="space-card" href="{{ block.settings.link | default: routes.all_products_collection_url }}" {{ block.shopify_attributes }}>
+          <div class="space-media">
+            {% if block.settings.image != blank %}{{ block.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: block.settings.title | escape }}{% else %}<div class="space-art space-art-{{ forloop.index }}"><i></i><b></b><span></span></div>{% endif %}
+            <div class="space-number">0{{ forloop.index }}</div><div class="space-arrow">↗</div>
+          </div>
+          <div class="space-meta"><h3>{{ block.settings.title | escape }}</h3><span>{{ block.settings.caption | escape }}</span></div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% schema %}
+{"name":"Shop by space","settings":[{"type":"text","id":"kicker","label":"Kicker","default":"DESIGNED AROUND YOUR LIFE"},{"type":"text","id":"heading","label":"Heading","default":"EVERY SPACE, CONSIDERED."},{"type":"textarea","id":"description","label":"Description","default":"Small changes. Better rituals. A calmer way to live."}],"blocks":[{"type":"space","name":"Space","settings":[{"type":"text","id":"title","label":"Title","default":"BEDROOM"},{"type":"text","id":"caption","label":"Caption","default":"QUIET ORDER"},{"type":"image_picker","id":"image","label":"Image"},{"type":"url","id":"link","label":"Link"}]}],"presets":[{"name":"Shop by space","blocks":[{"type":"space","settings":{"title":"BEDROOM","caption":"QUIET ORDER"}},{"type":"space","settings":{"title":"DESK","caption":"FOCUS BETTER"}},{"type":"space","settings":{"title":"KITCHEN","caption":"CLEAR COUNTERS"}},{"type":"space","settings":{"title":"BATHROOM","caption":"EVERYTHING IN PLACE"}},{"type":"space","settings":{"title":"TRAVEL","caption":"PACK LIGHT"}}]}]}
+{% endschema %}
