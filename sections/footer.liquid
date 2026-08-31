@@ -1,0 +1,10 @@
+<footer class="footer">
+  <div><div class="footer-brand">{{ settings.brand_name | default: 'ELVORA' | escape }}</div><p>{{ settings.tagline | default: 'Make Space. Live Better.' | escape }}</p></div>
+  <div class="footer-links">
+    {% if section.settings.menu != blank %}{% for link in section.settings.menu.links %}<a href="{{ link.url }}">{{ link.title }}</a>{% endfor %}{% else %}<a href="{{ routes.all_products_collection_url }}">Shop</a><a href="{{ routes.collections_url }}">Collections</a><a href="{{ routes.search_url }}">Search</a><a href="{{ routes.cart_url }}">Cart</a>{% endif %}
+  </div>
+  <div class="footer-copy">{% if settings.instagram_url != blank %}<a href="{{ settings.instagram_url }}">{{ settings.instagram_handle | escape }}</a><br>{% endif %}© {{ 'now' | date: '%Y' }} {{ shop.name | escape }}. All rights reserved.</div>
+</footer>
+{% schema %}
+{"name":"Footer","settings":[{"type":"link_list","id":"menu","label":"Footer menu"}],"presets":[{"name":"Footer"}]}
+{% endschema %}

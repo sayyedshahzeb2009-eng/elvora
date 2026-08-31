@@ -1,0 +1,19 @@
+<section class="hero el-hero" data-hero>
+  <div class="hero-copy">
+    {% if section.settings.eyebrow != blank %}<p class="eyebrow">{{ section.settings.eyebrow | escape }}</p>{% endif %}
+    <h1>{{ section.settings.heading | escape | newline_to_br }}</h1>
+    {% if section.settings.description != blank %}<p class="hero-text">{{ section.settings.description }}</p>{% endif %}
+    <div class="hero-actions"><a class="button" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">{{ section.settings.button_text | escape }} <span>↗</span></a>{% if section.settings.secondary_text != blank %}<a class="hero-secondary" href="{{ section.settings.secondary_link | default: routes.root_url }}">{{ section.settings.secondary_text | escape }}</a>{% endif %}</div>
+    <div class="hero-scroll"><span></span> SCROLL TO DISCOVER</div>
+  </div>
+  <div class="hero-object" aria-hidden="true" data-hero-object>
+    <div class="hero-aura aura-one"></div><div class="hero-aura aura-two"></div><div class="hero-orbit orbit-a"></div><div class="hero-orbit orbit-b"></div>
+    {% if section.settings.image != blank %}{{ section.settings.image | image_url: width: 1400 | image_tag: loading: 'eager', alt: section.settings.image.alt, class: 'hero-image' }}{% else %}
+      <div class="hero-3d-product"><div class="h3d-top"></div><div class="h3d-body"><i></i><i></i><i></i><i></i></div><div class="h3d-drawer"></div></div>
+    {% endif %}
+    <div class="hero-label"><span>ELVORA</span><b>OBJECT / 001</b></div>
+  </div>
+</section>
+{% schema %}
+{"name":"Hero","settings":[{"type":"text","id":"eyebrow","label":"Eyebrow","default":"SMART LIVING / 01"},{"type":"textarea","id":"heading","label":"Heading","default":"MAKE SPACE\nFOR MORE."},{"type":"textarea","id":"description","label":"Description","default":"Thoughtfully designed essentials that transform the spaces you live in."},{"type":"text","id":"button_text","label":"Primary button","default":"SHOP COLLECTION"},{"type":"url","id":"button_link","label":"Primary link"},{"type":"text","id":"secondary_text","label":"Secondary link","default":"EXPLORE ELVORA"},{"type":"url","id":"secondary_link","label":"Secondary link URL"},{"type":"image_picker","id":"image","label":"Hero product image","info":"Optional. If empty, ELVORA's built-in CSS 3D object is shown."}],"presets":[{"name":"ELVORA Hero"}]}
+{% endschema %}

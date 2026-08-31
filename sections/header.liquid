@@ -1,0 +1,28 @@
+{% if settings.show_announcement and settings.announcement_text != blank %}<div class="announcement">{{ settings.announcement_text | escape }}</div>{% endif %}
+<header class="site-header" data-header>
+  <a class="brand" href="{{ routes.root_url }}" aria-label="{{ settings.brand_name | escape }} home">
+    {% if settings.logo != blank %}
+      {{ settings.logo | image_url: width: 300 | image_tag: loading: 'eager', alt: settings.brand_name, class: 'brand-logo' }}
+    {% else %}
+      {{ settings.brand_name | default: 'ELVORA' | escape }}
+    {% endif %}
+  </a>
+  <nav class="nav" aria-label="Main navigation">
+    {% if section.settings.menu != blank %}
+      {% for link in section.settings.menu.links %}<a href="{{ link.url }}">{{ link.title }}</a>{% endfor %}
+    {% else %}
+      <a href="{{ routes.all_products_collection_url }}">Shop</a>
+      <a href="{{ routes.collections_url }}">Collections</a>
+      <a href="{{ routes.search_url }}">Search</a>
+    {% endif %}
+  </nav>
+  <a class="cart-link" href="{{ routes.cart_url }}" aria-label="Cart">Cart <span data-cart-count>{% if cart.item_count > 0 %}({{ cart.item_count }}){% endif %}</span></a>
+</header>
+{% schema %}
+{
+  "name":"Header",
+  "settings":[
+    {"type":"link_list","id":"menu","label":"Desktop menu"}
+  ]
+}
+{% endschema %}

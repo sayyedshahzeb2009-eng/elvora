@@ -1,2 +1,0 @@
-export const theme={colors:{primary:'#F5F2EA',secondary:'#87927D',accent:'#C8B99A',background:'#F5F2EA',text:'#171717',dark:'#11110F',white:'#FFFFFF',border:'rgba(23,23,23,.12)'},animations:{enabled:true,speed:1,parallax:true,pageTransitions:true,magneticButtons:true,customCursor:true,hoverEffects:true},threeD:{enabled:true,rotationSpeed:.22,mouseInteraction:true,scrollInteraction:true,mobileEnabled:false},shipping:{freeShippingThreshold:2500}} as const;
-export const ENABLE_3D=theme.threeD.enabled;
